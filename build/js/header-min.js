@@ -1,0 +1,1 @@
+$(document).ready(function(){window.innerWidth<=992&&($(".header__burger").click(function(){$(".header__menu").fadeToggle(),$(this).toggleClass("active")}),$(".header__menu__list-item--dropdown").click(function(){$(this).find(".header__menu__dropdown-list").slideToggle(),$(this).toggleClass("open")}))});

@@ -1,0 +1,136 @@
+.footer {
+    background-color: $violet;
+    padding: 58px 0 52px;
+
+    &__menu {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 34px;
+    }
+
+    &__menu__list-item {
+        margin-bottom: 4px;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    &__menu__list-item-link {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 250%;
+        color: $white;
+    }
+
+    &__subscribe-input {
+        width: 100%;
+        height: 48px;
+        background-color: $white;
+        border-radius: 4px;
+        padding: 10px 15px;
+        border: none;
+        margin-bottom: 22px;
+        color: $grey;
+        font-size: 16px;
+        line-height: 28px;
+        font-family: $roboto;
+
+        &::placeholder {
+            color: $grey;
+            font-size: 16px;
+            line-height: 28px;
+            font-family: $roboto;
+        }
+    }
+
+    &__subscribe-submit {
+        font-family: $roboto;
+        width: 100%;
+        max-width: 148px;
+        height: 48px;
+        border-radius: 50px;
+        border: none;        
+        margin: 0 auto;
+        display: block;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 160%;
+        color: $white;
+        background-color: $darkyellow;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .footer {
+        background-color: $violet;
+        padding: 52px 0 37px;
+    
+        &__wrap {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__logo {
+            margin-right: 70px;
+        }
+
+        &__menu {
+            flex-wrap: wrap;
+            margin-bottom: 0;
+        }
+
+        &__subscribe {
+            display: flex;
+        }
+
+        &__subscribe-input {
+            margin-right: 37px;
+            width: 100%;
+            min-width: 247px;
+            display: block;
+            margin-bottom: 0;
+        }
+
+        &__subscribe-submit {
+            width: 148px;
+            min-width: 148px;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .footer {
+        padding: 75px 0;
+
+        &__wrap {
+            align-items: center;
+        }
+
+        &__logo {
+            margin-right: 190px;
+        }
+
+        &__menu-list {
+            display: flex;
+        }
+
+        &__menu__list-item {
+            margin-bottom: 0;
+            margin-right: 55px;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+        }
+
+        &__subscribe-submit {
+            transition: 0.2s;
+            cursor: pointer;
+            
+            &:hover {
+                background-color: $yellowhover;
+            }
+        }
+    }
+}

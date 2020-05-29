@@ -1,0 +1,303 @@
+.header {
+    position: relative;
+    &__wrap {
+        display: flex;
+        align-items: center;
+        padding: 25px 0 15px;
+    }
+
+    &__menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: $white;
+        box-shadow: 0px 8px 0px rgba(0, 0, 0, 0.15);
+        padding-bottom: 45px;
+        z-index: 3;
+    }
+
+    &__menu__list {
+        display: block;
+        margin-bottom: 45px;
+    }
+
+    &__menu__list-item {
+        margin-right: 0;
+        position: relative;
+        border-top: 1px solid #D6B9FF;
+        
+        
+        &:last-of-type {
+            border-bottom: 1px solid #D6B9FF;
+        }
+    }
+
+
+
+    &__menu__list-item--dropdown {
+        position: relative;
+
+        &:after {
+            content: "";
+            position: absolute;
+            width: 18px;
+            height: 11px;
+            top: 32px;
+            bottom: auto;
+            right: 32px;
+            margin: auto;
+            background-image: url(../img/icons/dropdown-menu.svg);
+            background-repeat: no-repeat;
+            transform: rotate(-90deg);
+            transition: 0.2s;
+        }
+
+        &.open {
+            &:after {
+                transform: rotate(0);
+                transition: 0.2s;
+            }
+        }
+
+        
+    }
+
+    &__menu__list-item-icon {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 11px;
+        width: 11px;
+        height: 6px;
+        transition: 0.2s;
+        transform: rotate(0);
+
+        use {
+            fill: $darkviolet;
+            transition: 0.2s;
+        }
+    }
+
+    &__menu__dropdown-list {
+        display: none;
+        background-color: $lightviolet;
+        padding-left: 62px;
+        border-top: 1px solid #D6B9FF;
+    }
+
+    &__menu__dropdown-list-item-link {
+        font-size: 25px;
+        line-height: 277%;
+        color: $darkviolet;
+    }
+
+    &__menu__list-item-link {
+        font-weight: 500;
+        font-size: 27px;
+        line-height: 277%;
+        color: $darkviolet;
+        padding: 0 32px;
+        transition: 0.2s;
+    }
+
+    &__menu__btn {
+        font-family: $roboto;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 160%;
+        color: $white;
+        width: 180px;
+        height: 60px;
+        background-color: $violet;
+        border-radius: 50px;
+        border: none;
+        display: block;
+        margin: 0 auto;
+    }
+
+    &__burger {
+        position: relative;
+        margin-left: auto;
+        width: 36px;
+        height: 24px;
+
+        span {
+            position: absolute;
+            background-color: $darkviolet;
+            display: block;
+            height: 3px;
+            width: 100%;
+            border-radius: 2px;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+            transition: 0.2s;
+
+            &:first-of-type {
+                bottom: auto;
+                transform: rotate(0);
+            }
+
+            &:nth-of-type(2) {
+                opacity: 1;
+            }
+
+            &:last-of-type {
+                top: auto;
+                transform: rotate(0);
+            }
+        }
+
+        &.active {
+            span {
+                &:first-of-type {
+                    transform: rotate(45deg);
+                    bottom: 0;
+                }
+    
+                &:nth-of-type(2) {
+                    opacity: 0;
+                }
+    
+                &:last-of-type {
+                    transform: rotate(-45deg);
+                    top: 0;
+                }
+            }
+            
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .header {
+
+        &__wrap {
+            padding: 30px 0 10px;
+        }
+
+        &__menu {
+            display: flex!important;
+            justify-content: space-between;
+            align-items: center;
+            position: static;
+            width: 100%;
+            margin-left: 130px;
+            padding-bottom: 0;
+            box-shadow: none;
+        }
+
+        &__menu__list {
+            display: flex;
+            margin-bottom: 0;
+        }
+
+        &__menu__list-item {
+            margin-right: 47px;
+            position: relative;
+            border: none;
+            padding: 0;
+            
+            &:last-of-type {
+                border-bottom: none;
+                margin-right: 0;
+            }
+
+            &:hover {
+                .header__menu__list-item-link {
+                    color: $violet;
+                }
+            }
+        }
+
+        &__menu__list-item-link {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 160%;
+            padding: 0;
+            
+           
+        }
+    
+        &__menu__list-item--dropdown {
+            position: relative;
+            padding-right: 15px;
+    
+            &:after {
+                display: none;
+            }
+
+            &:hover {
+                .header__menu__dropdown-list {
+                    display: block;
+                }
+
+                .header__menu__list-item-icon {
+                    transform: rotate(180deg);
+
+                    use {
+                        fill: $violet;
+                    }
+                }
+            }
+        }
+
+        &__menu__dropdown-list {
+            position: absolute;
+            top: calc(100% + 16px);
+            left: -24px;
+            padding: 12px 24px;
+            min-width: 170px;
+            background-color: $white;
+            border: 1px solid $violet;
+            box-sizing: border-box;
+            box-shadow: 0px 4px 0px #E2CEFE;
+            border-radius: 10px;
+
+            &:after {
+                content: "";
+                position: absolute;
+                left: 60px;
+                top: -10px;
+                width: 18px;
+                height: 18px;
+                border-right: 1px solid $violet;
+                border-top: 1px solid $violet;
+                background-color: $white;
+                transform: rotate(-45deg);
+            }
+        }
+
+        &__menu__dropdown-list-item-link {
+            font-size: 16px;
+            line-height: 220%;
+            color: $darkviolet;
+            transition: 0.2s;
+
+            &:hover {
+                color: $violet;
+            }
+        }
+
+        &__menu__list-item-icon {
+            display: block;
+        }
+
+        &__menu__btn {
+            margin: 0;
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover {
+                background-color: $violethover;
+            }
+        }
+
+        &__burger {
+            display: none;
+        }
+    }
+}
